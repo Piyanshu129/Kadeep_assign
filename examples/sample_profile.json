@@ -1,0 +1,30 @@
+{
+    "name": "Alice Johnson",
+    "email": "alice.johnson@university.edu",
+    "education": "BS Computer Science, Junior at State University",
+    "skills": [
+        "Python",
+        "JavaScript",
+        "React",
+        "SQL",
+        "Git",
+        "Problem Solving",
+        "Team Collaboration"
+    ],
+    "interests": [
+        "Web Development",
+        "Machine Learning",
+        "Data Science",
+        "Cloud Computing"
+    ],
+    "experience": "Completed a 3-month internship at a local startup where I developed RESTful APIs using Flask and worked on frontend features with React. Also worked as a teaching assistant for Introduction to Programming course.",
+    "projects": [
+        "E-commerce website with React and Node.js featuring user authentication and payment integration",
+        "Machine learning model for sentiment analysis using Python and scikit-learn",
+        "Personal portfolio website with responsive design"
+    ],
+    "certifications": [
+        "AWS Cloud Practitioner",
+        "Google Data Analytics Certificate"
+    ]
+}

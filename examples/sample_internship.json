@@ -1,0 +1,31 @@
+{
+    "title": "Software Engineering Intern",
+    "company": "TechCorp Inc.",
+    "description": "We are seeking a motivated Software Engineering Intern to join our dynamic development team. You will work on real-world projects, collaborate with experienced engineers, and contribute to building scalable web applications. This is an excellent opportunity to gain hands-on experience in modern software development practices.",
+    "requirements": [
+        "Python",
+        "JavaScript",
+        "React",
+        "RESTful APIs",
+        "Git",
+        "SQL",
+        "Problem-solving skills",
+        "Strong communication"
+    ],
+    "responsibilities": [
+        "Develop and maintain web applications using React and Python",
+        "Write clean, maintainable, and well-documented code",
+        "Participate in code reviews and team meetings",
+        "Collaborate with designers and product managers",
+        "Debug and fix issues in existing codebase",
+        "Write unit tests for new features"
+    ],
+    "preferred_qualifications": [
+        "Experience with AWS or cloud platforms",
+        "Knowledge of Docker and containerization",
+        "Familiarity with CI/CD pipelines",
+        "Previous internship experience"
+    ],
+    "duration": "12 weeks (Summer 2026)",
+    "location": "Remote / Hybrid (San Francisco, CA)"
+}

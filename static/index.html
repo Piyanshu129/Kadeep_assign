@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternHub AI - Smart Internship Matching</title>
+    <meta name="description" content="AI-powered internship matching platform with skill gap analysis and ATS scoring">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">
+                <span class="logo-icon">🚀</span>
+                InternHub AI
+            </h1>
+            <p class="tagline">AI-Powered Internship Matching</p>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <div class="card student-card">
+                    <h2 class="card-title">
+                        <span class="icon">👤</span>
+                        Student Profile
+                    </h2>
+
+                    <form id="matchForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education">Education</label>
+                            <input type="text" id="education" required placeholder="BS Computer Science, Junior">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skills">Skills (comma-separated)</label>
+                            <input type="text" id="skills" required placeholder="Python, JavaScript, React, SQL">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interests">Interests (comma-separated)</label>
+                            <input type="text" id="interests" required placeholder="Web Development, AI, Data Science">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Experience (optional)</label>
+                            <textarea id="experience" rows="3"
+                                placeholder="Previous internships, work experience..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projects">Projects (comma-separated, optional)</label>
+                            <input type="text" id="projects" placeholder="E-commerce website, ML model for prediction">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card internship-card">
+                    <h2 class="card-title">
+                        <span class="icon">💼</span>
+                        Internship Description
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" required placeholder="Software Engineering Intern">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" required placeholder="Tech Corp">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="3" required
+                            placeholder="We are looking for a talented intern..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requirements">Requirements (comma-separated)</label>
+                        <input type="text" id="requirements" required placeholder="Python, Git, Problem Solving">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsibilities">Responsibilities (comma-separated)</label>
+                        <input type="text" id="responsibilities" required
+                            placeholder="Develop features, Write tests, Code reviews">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location (optional)</label>
+                        <input type="text" id="location" placeholder="Remote / San Francisco, CA">
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="matchBtn" class="btn-primary">
+                    <span class="btn-icon">✨</span>
+                    Analyze Match
+                </button>
+            </div>
+
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loader"></div>
+                <p class="loading-text">AI is analyzing the match...</p>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2 class="results-title">Match Results</h2>
+                    <div class="score-badges">
+                        <div class="score-badge">
+                            <span class="badge-label">Match Score</span>
+                            <span id="matchScore" class="badge-value">--</span>
+                        </div>
+                        <div class="score-badge ats-badge">
+                            <span class="badge-label">ATS Score</span>
+                            <span id="atsScore" class="badge-value">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3 class="result-card-title">
+                            <span class="icon">📝</span>
+                            Match Summary
+                        </h3>
+                        <p id="matchSummary" class="result-text"></p>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-card-title">
+                            <span class="icon">💪</span>
+                            Your Strengths
+                        </h3>
+                        <ul id="strengthsList" class="strengths-list"></ul>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-card-title">
+                            <span class="icon">📚</span>
+                            Skill Gaps & Learning Path
+                        </h3>
+                        <div id="skillGapsList" class="skill-gaps-list"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-card-title">
+                            <span class="icon">💡</span>
+                            Recommendations
+                        </h3>
+                        <p id="recommendations" class="result-text"></p>
+                    </div>
+
+                    <div class="result-card full-width">
+                        <h3 class="result-card-title">
+                            <span class="icon">📄</span>
+                            Tailored Resume
+                        </h3>
+                        <pre id="resumeContent" class="resume-content"></pre>
+                        <button id="downloadResumeBtn" class="btn-secondary">
+                            <span class="btn-icon">⬇️</span>
+                            Download Resume
+                        </button>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-card-title">
+                            <span class="icon">🎯</span>
+                            ATS Score Breakdown
+                        </h3>
+                        <div id="atsBreakdown" class="ats-breakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>InternHub AI Platform v1.0 | Powered by vLLM & AI</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
