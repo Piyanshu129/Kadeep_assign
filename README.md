@@ -22,7 +22,6 @@ InternHub AI is a comprehensive platform that uses artificial intelligence to ma
 - **Backend**: FastAPI (Python)
 - **AI Engine**: Local llama.cpp (Qwen2.5-7B-Instruct-AWQ)
 - **Frontend**: Vanilla HTML/CSS/JavaScript
-- **Styling**: Modern CSS with glassmorphism and gradients
 
 ### Components
 
